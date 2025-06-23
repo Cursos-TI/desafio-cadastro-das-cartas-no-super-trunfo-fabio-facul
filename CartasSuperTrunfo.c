@@ -1,27 +1,8 @@
 
-
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
-
-
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-    
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
-
 #include <stdio.h>
 #include <string.h>
 
-#define MAXIMO_CIDADES 2
+#define CADASTRO_MAXIMO_CIDADES 4
 #define CODIGO_TAMANHO 5
 #define NOME_CIDADE_TAMANHO 50
 
@@ -36,10 +17,10 @@ typedef struct {
 } Carta;
 
 void lerDados(Carta *carta) {
-    printf("Digite o Estado (A-H): ");
+    printf("Digite o Estado: ");
     scanf(" %c", &carta->estado);
     
-    printf("Digite o Código da Carta (ex: A01): ");
+    printf("Digite o Código da Carta (ex: ABC): ");
     scanf("%s", carta->codigo);
     
     printf("Digite o Nome da Cidade: ");
@@ -72,14 +53,14 @@ void exibirDados(const Carta *carta) {
 }
 
 int main() {
-    Carta cartas[MAXIMO_CIDADES];
+    Carta cartas[CADASTRO_MAXIMO_CIDADES];
 
-    for (int i = 0; i < MAXIMO_CIDADES; i++) {
+    for (int i = 0; i < CADASTRO_MAXIMO_CIDADES; i++) {
         printf("\n--- Dados da Carta %d ---\n", i + 1);
         lerDados(&cartas[i]);
     }
 
-    for (int i = 0; i < MAXIMO_CIDADES; i++) {
+    for (int i = 0; i < CADASTRO_MAXIMO_CIDADES; i++) {
         printf("\n--- Exibindo Dados da Carta %d ---\n", i + 1);
         exibirDados(&cartas[i]);
     }
